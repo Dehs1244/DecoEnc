@@ -1,0 +1,80 @@
+﻿<Window x:Class="DecoEnc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:DecoEnc.MVM.ViewModel"
+        xmlns:local="clr-namespace:DecoEnc"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="920"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" Style="{DynamicResource WindowStyle}">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
+    <Border Background="#48036F"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="DecoEnc" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" 
+                       Foreground="White" 
+                       FontSize="22"/>
+            
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Главный экран"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding HomeViewCommand}"/>
+                <RadioButton Content="Шифрование"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding CryptViewCommand}"/>
+                <RadioButton Content="Шифрование файлов"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding CryptFileViewCommand}"/>
+                <RadioButton Content="Дешифратор"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding DecryptModel.Command}"/>
+                <RadioButton Content="Дешифратор файлов"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding DecryptFileModel.Command}"/>
+                <RadioButton Content="Настройки"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+            </StackPanel>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
+        </Grid>
+    </Border>
+</Window>

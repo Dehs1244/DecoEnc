@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="DecoEnc.MVM.View.CryptFileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DecoEnc.MVM.View"
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:DecoEnc.Utils"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Height="450" VerticalAlignment="Center" >
+
+        <TextBlock Text="Шифрование файловой информации"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   Margin="0,0,0,20"/>
+        <TextBlock Text="Не выбраны файлы для шифрования"
+                   Foreground="Red"
+                   FontSize="12"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,5"
+                   x:Name="TextFileCrypt"/>
+        <TextBlock Text="Файлы зашифрованы!"
+                   Foreground="Green"
+                   FontSize="12"
+                   HorizontalAlignment="Center"
+                   Visibility="Hidden"
+                   Margin="0,0,0,5"
+                   x:Name="TextCompleteCrypt"/>
+        <TextBlock Text="Файлы записаны в контейнер!"
+                   Foreground="Blue"
+                   FontSize="12"
+                   HorizontalAlignment="Center"
+                   Visibility="Hidden"
+                   Margin="0,0,0,5"
+                   x:Name="TextCompleteFileWrite"/>
+        <TextBox
+                 Width="272"
+                 my:TextBlockExtensions.BackgroundText="Введите ключ шифрования"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Margin="10,10,10,10"
+                 Style="{StaticResource DecoTextBox}"
+                 Name="CryptFieldKey"/>
+        <Button HorizontalAlignment="Center" Content="Выбрать файлы" Width="243" Margin="10" Height="54" Click="ChooseFiles"/>
+        <Button x:Name="CryptButton" HorizontalAlignment="Center" Content="Зашифровать" Width="212" IsEnabled="False" Margin="10" Height="43" Click="CryptFiles" />
+        <Button Content="Загрузить ключ" Margin="10" Width="212" Height="43" x:Name="ButtonDownloadKey" Click="DownloadKey" IsEnabled="False"/>
+        <Button x:Name="PackageCryptFileButton" Content="Упаковать контейнер" Width="212" Height="43" IsEnabled="False" Click="PackageCryptFiles"/>
+    </StackPanel>
+</UserControl>

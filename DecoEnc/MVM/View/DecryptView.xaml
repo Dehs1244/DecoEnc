@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="DecoEnc.MVM.View.DecryptView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DecoEnc.MVM.View"
+             xmlns:my="clr-namespace:DecoEnc.Utils"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Height="450" VerticalAlignment="Center" >
+
+        <TextBlock Text="Дешифрование текстовой информации"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   Margin="0,0,0,20"/>
+        <TextBox
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 my:TextBlockExtensions.BackgroundText="Введите зашифрованное сообщение"
+                 Width="272"
+                 Margin="10,10,10,10"
+                 Style="{StaticResource DecoTextBox}"
+                 x:Name="DecryptFieldMessage"/>
+        <Button x:Name="DecryptButton" HorizontalAlignment="Center" Content="Дешифровать" Width="212" Margin="10" Height="43" Click="Decrypt" IsEnabled="False"/>
+        <Button x:Name="DecryptReadKeyButton" Content="Загрузить ключ" Width="212" Height="43" Click="ReadKey"/>
+        <TextBox
+            Width="342"
+            my:TextBlockExtensions.BackgroundText="Здесь будет дешифрованное сообщение"
+            IsReadOnly="True"
+            Margin="10,25,10,10"
+            Style="{StaticResource DecoTextBox}"
+            x:Name="DecryptFieldOuput" Height="151"/>
+    </StackPanel>
+</UserControl>
